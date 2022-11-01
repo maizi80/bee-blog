@@ -1,0 +1,30 @@
+profile:
+  nickname:
+    alias: "nickname"
+    name: "昵称"
+  motto:
+    alias: "motto"
+    name: "格言"
+  motto_e:
+    alias: "motto_e"
+    name: "英文格言"
+  avatar:
+    alias: "avatar"
+    name: "头像"
+  introduction:
+    alias: "introduction"
+    name: "个人介绍"
+  qq:
+    alias: "qq"
+    name: "QQ"
+    type: 1
+  email:
+    alias: "email"
+    name: "Email"
+    type: 1
+  github:
+    alias: "github"
+    name: "Github"
+    type: 1
+
+default_avatar: "/static/images/noimage.png"

@@ -12,6 +12,8 @@ func init() {
 	ns := beego.NewNamespace("/admin",
 		// /admin/
 		beego.NSRouter("/", &controllers.AdminController{}),
+		// /admin/profile 个人信息页面Get、Post请求
+		beego.NSRouter("/profile", &controllers.ProfileController{}),
 	)
 	beego.AddNamespace(ns)
 }

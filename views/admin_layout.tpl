@@ -48,8 +48,8 @@
         <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
             <div class="sidebar-sticky pt-3">
                 <ul class="nav flex-column">
-                    <li class="nav-item"><a class="nav-link" href="/admin"><span data-feather="file"></span>后台首页</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="/admin/article"><span data-feather="home"></span>文章管理 </a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/admin"><span data-feather="file"></span>后台首页</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/admin/article"><span data-feather="home"></span>文章管理 </a></li>
                     <li class="nav-item"><a class="nav-link" href="/admin/category"><span data-feather="home"></span>文章分类管理 </a></li>
                     <li class="nav-item"><a class="nav-link" href="/admin/tag"><span data-feather="home"></span>文章标签管理 </a></li>
                     <li class="nav-item"><a class="nav-link" href="/admin/profile"><span data-feather="file"></span>个人信息</a></li>
@@ -70,8 +70,13 @@
 <script src="/static/js/common.js"></script>
 <script>
     let pathname = window.location.pathname
-    pathnames = pathname.split('/')[1]
-    let href = '/'+pathnames
+    pathnames = pathname.split('/')
+    if (pathnames.length > 2){
+        p = "/"+pathnames[2]
+    }else {
+        p = ""
+    }
+    let href = '/admin'+p
     let navLinks = $(".nav-link")
     $.each(navLinks, function(i, item){
         $(item).removeClass("active")
