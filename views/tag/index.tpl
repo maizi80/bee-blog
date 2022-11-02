@@ -1,5 +1,5 @@
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
-    <a class="btn btn-primary btn-add" href="/tag/add" role="button">添加</a>
+    <a class="btn btn-primary btn-add" href="/admin/tag/add" role="button">添加</a>
     <div class="table-responsive">
         <table class="table table-striped table-sm">
             <thead>
@@ -20,8 +20,8 @@
                 <td>{{$tag.Sort}}</td>
                 <td>
                     <div class="btn-group" role="group" aria-label="Basic example">
-                        <a role="button" class="btn btn-primary btn-min" href="/tag/{{$tag.Id}}" >编辑</a>
-                        <a role="button" class="btn btn-danger btn-min" onclick="delRow(this)" url="/tag/{{$tag.Id}}" >删除</a>
+                        <a role="button" class="btn btn-primary btn-min" href="/admin/tag/{{$tag.Id}}" >编辑</a>
+                        <a role="button" class="btn btn-danger btn-min" onclick="delRow(this)" url="/admin/tag/{{$tag.Id}}" >删除</a>
                     </div>
                 </td>
             </tr>
