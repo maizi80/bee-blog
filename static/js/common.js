@@ -96,7 +96,7 @@ $(".btn-article").on("click", function () {
 
 function delRow(obj) {
     $(obj).attr("disabled", true).css("pointer-events","none");
-    if (window.confirm("删除改数据后将不能恢复，是否继续？") === true){
+    if (window.confirm("删除该数据后将不能恢复，是否继续？") === true){
         console.log($(obj).attr("url"))
         $.ajax({
             type: 'delete',
