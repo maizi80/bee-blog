@@ -1,5 +1,5 @@
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
-    <a class="btn btn-primary btn-add" href="/admin/add" role="button">添加</a>
+    <a class="btn btn-primary btn-add" href="/admin/article/add" role="button">添加</a>
     <div class="table-responsive">
         <table class="table table-striped table-sm">
             <thead>
@@ -40,25 +40,25 @@
                     <div class="btn-group" role="group" aria-label="Basic example">
                         {{if compare $a.Status 0}}
                         <a role="button" class="btn btn-success btn-min" onclick="modify(this)" url="/admin/{{$a.Id}}/status/1" title="发布文章">发布</a>
-                        <a role="button" class="btn btn-warning btn-min disabled" href="/admin/{{$a.Id}}" title="置顶文章">置顶</a>
-                        <a role="button" class="btn btn-info btn-min disabled" href="/admin/{{$a.Id}}" title="推荐文章">推荐</a>
+                        <a role="button" class="btn btn-warning btn-min disabled" href="/admin/article/{{$a.Id}}" title="置顶文章">置顶</a>
+                        <a role="button" class="btn btn-info btn-min disabled" href="/admin/article/{{$a.Id}}" title="推荐文章">推荐</a>
                         {{else}}
-                        <a role="button" class="btn btn-outline-success btn-min" onclick="modify(this)" url="/admin/{{$a.Id}}/status/0" title="取消发布文章">发布</a>
+                        <a role="button" class="btn btn-outline-success btn-min" onclick="modify(this)" url="/admin/article/{{$a.Id}}/status/0" title="取消发布文章">发布</a>
                             {{if compare $a.IsTop 0}}
-                            <a role="button" class="btn btn-warning btn-min" onclick="modify(this)" url="/admin/{{$a.Id}}/top/1" title="置顶文章">置顶</a>
+                            <a role="button" class="btn btn-warning btn-min" onclick="modify(this)" url="/admin/article/{{$a.Id}}/top/1" title="置顶文章">置顶</a>
                             {{else}}
-                            <a role="button" class="btn btn-outline-warning btn-min" onclick="modify(this)" url="/admin/{{$a.Id}}/top/0" title="取消置顶文章">置顶</a>
+                            <a role="button" class="btn btn-outline-warning btn-min" onclick="modify(this)" url="/admin/article/{{$a.Id}}/top/0" title="取消置顶文章">置顶</a>
                             {{end}}
 
                             {{if compare $a.IsRecommend 0}}
-                            <a role="button" class="btn btn-info btn-min" onclick="modify(this)" url="/admin/{{$a.Id}}/recommend/1" title="推荐文章">推荐</a>
+                            <a role="button" class="btn btn-info btn-min" onclick="modify(this)" url="/admin/article/{{$a.Id}}/recommend/1" title="推荐文章">推荐</a>
                             {{else}}
-                            <a role="button" class="btn btn-outline-info btn-min" onclick="modify(this)" url="/admin/{{$a.Id}}/recommend/0" title="取消推荐文章">推荐</a>
+                            <a role="button" class="btn btn-outline-info btn-min" onclick="modify(this)" url="/admin/article/{{$a.Id}}/recommend/0" title="取消推荐文章">推荐</a>
                             {{end}}
                         {{end}}
 
-                        <a role="button" class="btn btn-primary btn-min" href="/admin/{{$a.Id}}" >编辑</a>
-                        <a role="button" class="btn btn-danger btn-min" onclick="delRow(this)" url="/admin/{{$a.Id}}" >删除</a>
+                        <a role="button" class="btn btn-primary btn-min" href="/admin/article/{{$a.Id}}" >编辑</a>
+                        <a role="button" class="btn btn-danger btn-min" onclick="delRow(this)" url="/admin/article/{{$a.Id}}" >删除</a>
                     </div>
                 </td>
             </tr>

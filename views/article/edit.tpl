@@ -1,6 +1,6 @@
 
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
-    <form class="fp-4" id="post-form" method="put" action="/admin/{{.a.Id}}">
+    <form class="fp-4" id="post-form" method="put" action="/admin/article/{{.a.Id}}">
         <input type="hidden" name="img" value="{{.a.Image}}">
         <div class="form-group row">
             <label class="col-sm-1 col-form-label">标题</label>

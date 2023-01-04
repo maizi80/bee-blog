@@ -1,6 +1,6 @@
 
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
-    <form class="fp-4" id="post-form" method="post" action="/admin">
+    <form class="fp-4" id="post-form" method="post" action="/admin/article">
         <div class="form-group row">
             <label class="col-sm-1 col-form-label">标题</label>
             <div class="col-sm-4">

@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"reflect"
 	"strconv"
+	"strings"
 )
 
 // ToInt 把数据转为Int格式
@@ -30,4 +31,20 @@ func ToUInt(v any) (d uint, err error) {
 	d = uint(intNum)
 	err = e
 	return
+}
+
+// Convert 把数组转为字符串，在各个数据间插入逗号分隔
+func Convert(array interface{}) string {
+	return strings.Replace(strings.Trim(fmt.Sprint(array), "[]"), " ", ",", -1)
+}
+
+func ContainsIntInString(s string, search int64) bool {
+	slice := strings.Split(s, ",")
+	for _, v := range slice {
+		vInt, _ := strconv.Atoi(v)
+		if vInt == int(search) {
+			return true
+		}
+	}
+	return false
 }
