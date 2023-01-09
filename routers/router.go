@@ -6,7 +6,10 @@ import (
 )
 
 func init() {
-	beego.Router("/", &controllers.MainController{})
+	beego.Router("/", &controllers.HomeController{})
+	beego.Router("/article/:id", &controllers.HomeController{}, "get:Article")
+	beego.Router("/comment/:aid", &controllers.CommentController{})
+
 	beego.Router("/login", &controllers.LoginController{})
 
 	ns := beego.NewNamespace("/admin",
@@ -34,7 +37,6 @@ func init() {
 		beego.NSRouter("/article/:aid", &controllers.ArticleController{}, "get:Edit;put:Put;delete:Delete"),
 		// /admin/article/aid/type/status 处理文章列表页面的修改文章状态的请求 aid是文章id，type是类型，如推荐：recommend 置顶：top 状态：status status是状态id
 		beego.NSRouter("/article/:aid/:type/:status", &controllers.ArticleController{}, "put:ChangeStatus"),
-
 	)
 	beego.AddNamespace(ns)
 }

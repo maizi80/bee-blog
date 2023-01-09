@@ -39,7 +39,7 @@
                 <td>
                     <div class="btn-group" role="group" aria-label="Basic example">
                         {{if compare $a.Status 0}}
-                        <a role="button" class="btn btn-success btn-min" onclick="modify(this)" url="/admin/{{$a.Id}}/status/1" title="发布文章">发布</a>
+                        <a role="button" class="btn btn-success btn-min" onclick="modify(this)" url="/admin/article/{{$a.Id}}/status/1" title="发布文章">发布</a>
                         <a role="button" class="btn btn-warning btn-min disabled" href="/admin/article/{{$a.Id}}" title="置顶文章">置顶</a>
                         <a role="button" class="btn btn-info btn-min disabled" href="/admin/article/{{$a.Id}}" title="推荐文章">推荐</a>
                         {{else}}

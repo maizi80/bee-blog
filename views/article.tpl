@@ -49,7 +49,7 @@
                     <div class="post-tags">
                         <i class="iconfont"></i>
                         {{range $k,$t := .tag}}
-                        <a href='{{urlfor "ArticleController.TagList" ":tid" $t.Id}}'>{{$t.Name}}</a>
+                        <a href='{{urlfor "HomeController.TagList" ":tid" $t.Id}}'>{{$t.Name}}</a>
                         {{end}}
                     </div>
                 </footer>
@@ -57,12 +57,12 @@
             <!-- 版权声明 -->
             <div class="open-message">
                 <p>声明：Bee-Blog|版权所有，违者必究|如未注明，均为原创</p>
-                <p>转载：转载请注明原文链接 - <a href='{{urlfor "ArticleController.Get" ":id" .article.Id}}'>{{.Title}}</a></p>
+                <p>转载：转载请注明原文链接 - <a href='{{urlfor "HomeController.Article" ":id" .article.Id}}'>{{.Title}}</a></p>
             </div>
             <!-- 相邻文章 -->
             <section class="post-squares nextprev">
                 <div class="post-nepre half previous">
-                    <a href='{{urlfor "ArticleController.Get" ":id" .pre.Id}}' rel="prev">
+                    <a href='{{urlfor "HomeController.Article" ":id" .pre.Id}}' rel="prev">
                         <div class="background" style="background-image:url({{.pre.Image}});"></div>
                         <span class="label">Previous Post</span>
                         <div class="info"><h3>{{if .pre.Title}}{{.pre.Title}}{{else}}无{{end}}</h3>
@@ -71,7 +71,7 @@
                     </a>
                 </div>
                 <div class="post-nepre half next">
-                    <a href='{{urlfor "ArticleController.Get" ":id" .next.Id}}' rel="next">
+                    <a href='{{urlfor "HomeController.Article" ":id" .next.Id}}' rel="next">
                         <div class="background" style="background-image:url({{.next.Image}});"></div>
                         <span class="label">Next Post</span>
                         <div class="info"><h3>{{if .next.Title}}{{.next.Title}}{{else}}无{{end}}</h3>
@@ -86,7 +86,7 @@
                 <div class="info" itemprop="author">
                     <div class="pf-gavtar">
                         <div class="pf-tou">
-                            <a><img src="/{{index .p.avatar}}"></a>
+                            <a><img src="{{index .p.avatar}}"></a>
                         </div>
                     </div>
                     <div class="meta">
