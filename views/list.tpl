@@ -13,23 +13,23 @@
                 <!-- 判断文章输出样式 -->
                 <div class="post-entry">
                     <div class="feature">
-                        <a href='{{urlfor "ArticleController.Get" ":id" $a.Id}}'><div class="overlay"><i class="iconfont"></i></div>
+                        <a href='{{urlfor "HomeController.Article" ":id" $a.Id}}'><div class="overlay"><i class="iconfont"></i></div>
                             <img src="{{$a.Image}}">
                         </a>
                     </div>
-                    <h1 class="entry-title"><a href='{{urlfor "ArticleController.Get" ":id" $a.Id}}'>{{if compare $a.IsTop 1}}<span style="color:#ff6d6d;font-weight:600">[置顶] </span>  {{end}}{{$a.Title}}</a></h1>
+                    <h1 class="entry-title"><a href='{{urlfor "HomeController.Article" ":id" $a.Id}}'>{{if compare $a.IsTop 1}}<span style="color:#ff6d6d;font-weight:600">[置顶] </span>  {{end}}{{$a.Title}}</a></h1>
                     <div class="p-time">
                         <i class="iconfont"></i> {{date $a.PublishedAt "Y-m-d"}}
                     </div>
-                    <a href='{{urlfor "ArticleController.Get" ":id" $a.Id}}'><p>{{substr $a.Introduction 0 80}}...</p></a>
+                    <a href='{{urlfor "HomeController.Article" ":id" $a.Id}}'><p>{{substr $a.Introduction 0 80}}...</p></a>
                     <!-- 文章下碎碎念 -->
                     <footer class="entry-footer">
                         <div class="post-more">
-                            <a href='{{urlfor "ArticleController.Get" ":id" $a.Id}}'><i class="iconfont"></i></a>
+                            <a href='{{urlfor "HomeController.Article" ":id" $a.Id}}'><i class="iconfont"></i></a>
                         </div>
                         <div class="info-meta">
                             <div class="comnum">
-                                <span><i class="iconfont"></i><a href='{{urlfor "ArticleController.Get" ":id" $a.Id}}'>{{$a.CommentCount}}条评论</a></span>
+                                <span><i class="iconfont"></i><a href='{{urlfor "HomeController.Article" ":id" $a.Id}}'>{{$a.CommentCount}}条评论</a></span>
                             </div>
                             <div class="views">
                                 <span><i class="iconfont"></i>{{$a.ViewCount}} 热度</span>
@@ -43,6 +43,6 @@
             <!-- 结束文章循环输出 -->
         </main>
         <input type="hidden" id="page_number" value="{{.co}}">
-        <div id="pagination"><a class="next" title="" href="/article/{{.type}}/page/{{.list.Id}}/2">加载更多</a></div>
+        <div id="pagination"><a class="next" title="" href="/article/{{.type}}/page/{{.list.Id}}/{{.p}}">加载更多</a></div>
     </div>
 </div>

@@ -9,6 +9,17 @@ func init() {
 	beego.Router("/", &controllers.HomeController{})
 	beego.Router("/article/:id", &controllers.HomeController{}, "get:Article")
 	beego.Router("/comment/:aid", &controllers.CommentController{})
+	beego.Router("/article/home/page/:page", &controllers.HomeController{}, "get:Get")
+	beego.Router("/list/category/:cid", &controllers.HomeController{}, "get:Category")
+	beego.Router("/article/category/page/:cid/:page", &controllers.HomeController{}, "get:Category")
+	beego.Router("/message", &controllers.HomeController{}, "get:Message")
+	beego.Router("/list/tag", &controllers.HomeController{}, "get:Tag")
+	beego.Router("/list/tag/:tid", &controllers.HomeController{}, "get:TagList")
+	beego.Router("/article/tag/page/:tid/:page", &controllers.HomeController{}, "get:Tag")
+	beego.Router("/search", &controllers.HomeController{}, "post:Search")
+	beego.Router("/article/search/page/:key/:page", &controllers.HomeController{}, "get:Search")
+	beego.Router("/archive", &controllers.HomeController{}, "get:Archive")
+	beego.Router("/about", &controllers.HomeController{}, "get:About")
 
 	beego.Router("/login", &controllers.LoginController{})
 

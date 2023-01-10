@@ -136,6 +136,7 @@ func (c *HomeController) Category() {
 	c.Data["co"] = co
 	c.Data["count"] = count
 	c.Data["list"] = category
+	c.Data["p"] = pageInt + 1
 	c.Data["type"] = "category"
 	c.Layout = "layout.tpl"
 	c.TplName = "list.tpl"
@@ -208,7 +209,7 @@ func (c *HomeController) Search() {
 	co := int(math.Ceil(float64(count) / float64(limit)))
 
 	list := make(map[string]string)
-	list["Name"] = "包含关键字“" + key + "”的文章"
+	list["Name"] = "包含关键字“" + key + "”"
 	list["Id"] = key
 
 	c.Data["Title"] = "搜索-" + key
@@ -230,17 +231,22 @@ func (c *HomeController) Message() {
 	article := make(map[string]string)
 	article["Id"] = aid
 
+	o := orm.NewOrm()
+	var user models.User
 	// 获取session
 	uid := c.GetSession("uid")
-	username := c.GetSession("username")
+	if uid != nil {
+		uidUint, _ := utils.ToUInt(uid)
+		user = models.User{Id: uidUint}
+		o.Read(&user)
+	}
 
 	c.LayoutSections = make(map[string]string)
 
 	c.Data["Title"] = "留言"
 	c.Data["commons"] = commons
 	c.Data["article"] = article
-	c.Data["uid"] = uid
-	c.Data["username"] = username
+	c.Data["user"] = user
 	c.LayoutSections["Scripts"] = "a_js.tpl"
 	c.LayoutSections["Comment"] = "comment.tpl"
 	c.Layout = "layout.tpl"
@@ -254,16 +260,22 @@ func (c *HomeController) About() {
 	article := make(map[string]string)
 	article["Id"] = aid
 
+	o := orm.NewOrm()
+	var user models.User
 	// 获取session
 	uid := c.GetSession("uid")
-	username := c.GetSession("username")
+	if uid != nil {
+		uidUint, _ := utils.ToUInt(uid)
+		user = models.User{Id: uidUint}
+		o.Read(&user)
+	}
 
 	c.LayoutSections = make(map[string]string)
 	c.Data["Title"] = "关于博主"
 	c.Data["commons"] = commons
 	c.Data["article"] = article
 	c.Data["uid"] = uid
-	c.Data["username"] = username
+	c.Data["user"] = user
 	c.LayoutSections["Scripts"] = "a_js.tpl"
 	c.LayoutSections["Comment"] = "comment.tpl"
 	c.Layout = "layout.tpl"
