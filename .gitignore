@@ -1,0 +1,6 @@
+bee-blog.exe*
+go.sum
+.idea/*
+env.yaml
+static/upload/*
+lastupdate.tmp
